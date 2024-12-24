@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Define arguments with default values -->
+    <arg name="connection_type" default="tcp"/>
+    <arg name="interface" default="192.168.8.151"/>
+    <arg name="log_port" default="ICOM1"/>
+    <arg name="port" default="1111"/>
+    <arg name="imu_rate" default="100"/>
+    <arg name="frame_id" default="imu"/>
+
+    <!-- Include the node as a component -->
+    <node pkg="miivii_bynav_driver" exec="miivii_bynav_node" name="miivii_bynav_node"   output="screen">
+        <!-- Declare parameters -->
+        <param name="connection_type" value="$(var connection_type)" />
+        <param name="interface" value="$(var interface)" />
+        <param name="log_port" value="$(var log_port)" />
+        <param name="port" value="$(var port)" />
+        <param name="imu_rate" value="$(var imu_rate)" />
+        <param name="frame_id" value="$(var frame_id)" />
+    </node>
+</launch>
